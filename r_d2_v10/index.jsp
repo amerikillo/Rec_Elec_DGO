@@ -370,7 +370,7 @@ a:hover {
       <p>&nbsp;</p>
       <p class="style1"><a href="carga_inven_clave.jsp" class="style1">CARGA INVENTARIO</a></p>
       <p class="style1"><a href="index_reporte.jsp" class="style1">REPORTE VALIDACION</a></p>
-	  <p class="style1"><a href="pass_compras.jsp" class="style1">REPORTE COMPRAS</a></p>
+	  <p class="style1"><a href="pass_compras.jsp" class="style1">REPORTE SOLICITADO/SURTIDO</a></p>
       <p class="style1"><a href="inventarios.jsp" class="style1">VER EXISTENCIAS</a></p>
       <p><a href="index_reporte_consumo.jsp" class="style1">CONSUMO SEMANAL </a></p>
 	  <p><a href="index_movi.jsp" class="style1">MOVIMIENTO AL INVENTARIO </a></p>

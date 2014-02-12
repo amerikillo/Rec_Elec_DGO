@@ -151,14 +151,14 @@ body {
       <table width="650" height="323" border="0" align="center" cellpadding="2">
         <tr>
           <td height="49" bgcolor="#FFFFFF" class="logo style1"><div align="center" class="logo style1">
-            <img src="imagenes/nay_ima1.jpg" width="142" height="72" />
+            <img src="logo_salud.jpg" width="116" height="72" />
           </div></td>
           <td height="49" colspan="2" bgcolor="#FFFFFF" class="logo style1"><div align="center">Validaci&oacute;n de Usuario<br />
           REPOSICION/VENTAS </div></td>
-          <td height="49" bgcolor="#FFFFFF" class="logo style1"><img src="imagenes/ssn.jpg" width="162" height="78" /></td>
+          <td height="49" bgcolor="#FFFFFF" class="logo style1"><img src="logo_dgo.jpg" width="118" height="78" /></td>
         </tr>
         <tr>
-          <td height="14" colspan="4" bgcolor="#EC3237"><a href="index.jsp" class="Estilo10">Regresar a Menú </a></td>
+          <td height="14" colspan="4" bgcolor="#009999"><a href="index.jsp" class="Estilo10">Regresar a Menú </a></td>
           </tr>
         <tr>
           <td width="142" height="20">&nbsp;</td>
@@ -199,7 +199,7 @@ body {
           <td>&nbsp;</td>
         </tr>
         <tr>
-          <td height="20" colspan="4" align="center"><img src="imagenes/ima_main.jpg" width="471" height="72" /></td>
+          <td height="20" colspan="4" align="center">&nbsp;</td>
           </tr>
       </table>
           </form>

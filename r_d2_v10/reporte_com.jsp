@@ -174,7 +174,9 @@ a:link {
   <tr>
     <td width="102"><img src="logo_salud.jpg" width="142" height="72" /></td>
     <td height="63" colspan="2" align="center" valign="bottom" nowrap="nowrap" bgcolor="#FFFFFF" id="logo"><div align="center">
-     <span class="style49">	  SAVI DISTRIBUCIONES S.A DE C.V<br />
+     <span class="style49">	GOBIERNO DEL ESTADO DE DURANGO<br />
+	 SECRETARIA DE SALUD<br />
+	  TIENDAS SORIANA S.A DE C.V<br />
 	  REPORTE PARA COMPRAS<br />SOLICITADO CONTRA SURTIDO<br />
     DE LA UNIDAD: <%=llamo_cat_jv%><br />
     PERIODO: <%=date1_jv%> al <%=date2_jv%><br /></span>
@@ -194,7 +196,7 @@ a:link {
   	<td height="25" colspan="7" bgcolor="#009999" id="dateformat">&nbsp;&nbsp;<span class="style76">
   	  <script language="JavaScript" type="text/javascript">
       //document.write(TODAY);	</script>
-      <a href="menu_compras.jsp" class="style76"><span class="Estilo1">Regresar a Menú</span></a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Estilo1">*REPORTE PARA REPOSICI&Oacute;N / VENTAS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="icono_excel.gif" width="37" height="29" usemap="#Map" border="0" /></span></td>
+      <a href="menu_compras.jsp" class="style76"><span class="Estilo1">Regresar a Menú</span></a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Estilo1">REPORTE PARA REPOSICI&Oacute;N / VENTAS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="icono_excel.gif" width="37" height="29" usemap="#Map" border="0" /></span></td>
   </tr>
  <tr>
     <td colspan="7" bgcolor="#003366"><img src="mm_spacer.gif" alt="" width="1" height="1" border="0" /></td>
