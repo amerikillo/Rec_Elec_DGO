@@ -66,7 +66,7 @@ body {
 .style1 {color: #000000}
 .style2 {
 	font-size: 8px;
-	color: #009999;
+	color: #000000;
 }
 .style5 {font-size: 36}
 .Estilo6 {font-size: 12; }
@@ -82,13 +82,13 @@ body {
       <table width="650" height="323" border="0" align="center" cellpadding="2">
         <tr>
           <td height="49" bgcolor="#FFFFFF" class="logo style1"><div align="center" class="logo style1">
-            <img src="imagenes/nay_ima1.jpg" width="142" height="72" />
+            <img src="logo_salud.jpg" width="116" height="72" />
           </div></td>
           <td height="49" colspan="2" bgcolor="#FFFFFF" class="logo style1"><div align="center">Consumos Reales <br /> Solcitado VS Surtido </div></td>
-          <td height="49" bgcolor="#FFFFFF" class="logo style1"><img src="imagenes/ssn.jpg" width="162" height="78" /></td>
+          <td height="49" bgcolor="#FFFFFF" class="logo style1"><img src="logo_dgo.jpg" width="118" height="78" /></td>
         </tr>
         <tr>
-          <td height="14" colspan="4" bgcolor="#EC3237"><a href="index.jsp" class="Estilo10 Estilo8">Regresar a Menú </a></td>
+          <td height="14" colspan="4" bgcolor="#009999"><a href="index.jsp" class="Estilo10 Estilo8">Regresar a Menú </a></td>
           </tr>
         <tr>
           <td width="114" height="20">&nbsp;</td>
@@ -100,7 +100,7 @@ body {
           <td height="20"><div align="right">
             <div align="left" class="Estilo6"></div>
           </div></td>
-          <td colspan="2" class="style5"><label><a href="menu_compras.jsp">REPORTE SOLICITADO CONTRA SURTIDO</a></label></td>
+          <td colspan="2"><a href="menu_compras.jsp">REPORTE SOLICITADO CONTRA SURTIDO</a></td>
           <td class="style5">&nbsp;</td>
         </tr>
         <tr>

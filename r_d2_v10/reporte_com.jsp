@@ -7,6 +7,8 @@
 
  Statement stmt__001 = null;
  ResultSet rset__001 = null;
+ Statement stmt__002 = null;
+ ResultSet rset__002 = null;
 
 
   
@@ -24,6 +26,7 @@ Connection conexion=null;
     conexion = DriverManager.getConnection(url,usuario,pass2);
      
 	    stmt__001 = conexion.createStatement();
+		stmt__002 = conexion.createStatement();
 		
 	
 	 
@@ -169,7 +172,7 @@ a:link {
 </p>
 <table width="618" border="0" align="center" cellpadding="2">
   <tr>
-    <td width="102"><img src="imagenes/nay_ima1.jpg" width="142" height="72" /></td>
+    <td width="102"><img src="logo_salud.jpg" width="142" height="72" /></td>
     <td height="63" colspan="2" align="center" valign="bottom" nowrap="nowrap" bgcolor="#FFFFFF" id="logo"><div align="center">
      <span class="style49">	  SAVI DISTRIBUCIONES S.A DE C.V<br />
 	  REPORTE PARA COMPRAS<br />SOLICITADO CONTRA SURTIDO<br />
@@ -177,7 +180,7 @@ a:link {
     PERIODO: <%=date1_jv%> al <%=date2_jv%><br /></span>
   
     </div></td>
-    <td width="103"><img src="imagenes/ssn.jpg" width="162" height="78" /></td>
+    <td width="103"><img src="logo_dgo.jpg" width="126" height="76" /></td>
   </tr>
   
 </table>
@@ -188,10 +191,10 @@ a:link {
   </tr>
 
   <tr bgcolor="#CCFF99">
-  	<td height="25" colspan="7" bgcolor="#D31145" id="dateformat">&nbsp;&nbsp;<span class="style76">
+  	<td height="25" colspan="7" bgcolor="#009999" id="dateformat">&nbsp;&nbsp;<span class="style76">
   	  <script language="JavaScript" type="text/javascript">
       //document.write(TODAY);	</script>
-      <a href="menu_compras.jsp" class="style76"><span class="Estilo1">Regresar a Menú</span></a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Estilo1">REPORTE PARA REPOSICI&Oacute;N / VENTAS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="imagenes/exc.jpg" width="37" height="29" usemap="#Map" border="0" /></span></td>
+      <a href="menu_compras.jsp" class="style76"><span class="Estilo1">Regresar a Menú</span></a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Estilo1">*REPORTE PARA REPOSICI&Oacute;N / VENTAS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="icono_excel.gif" width="37" height="29" usemap="#Map" border="0" /></span></td>
   </tr>
  <tr>
     <td colspan="7" bgcolor="#003366"><img src="mm_spacer.gif" alt="" width="1" height="1" border="0" /></td>
@@ -211,9 +214,10 @@ a:link {
               <td width="56" align="center"> <span class="style49">Clave  </span></td>
               <td width="193" align="center"> <span class="style49">Descripci&oacute;n</span></td>
               
-         
+         	  <td width="31" align="center"> <span class="style49">Amp. </span></td>
               <td width="31" align="center"> <span class="style49">Cant. Sol </span></td>
               <td width="44" align="center"> <span class="style49">Cant. Sur</span></td>
+			  
 			  
 			  
 			
@@ -223,19 +227,32 @@ a:link {
 			<%
             while(rset__001.next())
 			  {
+			  int ampu=1;
+			  int cant_sol=0;
+			  int cant_sur=0;
+			  rset__002=stmt__002.executeQuery("select cant from pasti_ampu where clave = '"+rset__001.getString("clave")+"' ");
+			  while(rset__002.next()){
+			  	ampu= Integer.parseInt(rset__002.getString("cant"));
+			  }
+			  cant_sol = (Integer.parseInt(rset__001.getString("sum(cant_sol)")))/ampu;
+			  cant_sur = (Integer.parseInt(rset__001.getString("sum(cant_sur)")))/ampu;
+			  
+			  sol1+=cant_sol;
+			  sur1+=cant_sur;
+			  
              %>
             <tr>
               <td align="center"><span class="style49"><%=rset__001.getString("clave")%></span></td>
               <td><span class="style49"><%=rset__001.getString("descrip")%></span></td>
               
              
-              <td align="center"><span class="style49"><%=rset__001.getString("sum(cant_sol)")%></span></td>
-              <td align="center"><span class="style49"><%=rset__001.getString("sum(cant_sur)")%></span></td>
+              <td align="center"><span class="style49"><%=ampu%></span></td>
+			  <td align="center"><span class="style49"><%=cant_sol%></span></td>
+              <td align="center"><span class="style49"><%=cant_sur%></span></td>
 			  
 	 		</tr>
 			 <%
-			 sol1+=Integer.parseInt(rset__001.getString("sum(cant_sol)"));
-			 sur1+=Integer.parseInt(rset__001.getString("sum(cant_sur)"));
+			 
 			  }
              %>
             <tr>
@@ -244,6 +261,7 @@ a:link {
               
               
               <td class="style49" align="center">&nbsp;</td>
+			  <td class="style49" align="center">&nbsp;</td>
               <td class="style49" align="right">PIEZAS</td>
               <td class="style49" align="center"><%=sol1%></td>
 			  <td class="style49" align="center"><%=sur1%></td>

@@ -411,7 +411,7 @@ a:hover {
             <td width="453" class="bodyText"><table width="652" border="0" align="center" cellpadding="0" cellspacing="0">
                 <tr>
                   <td height="37" colspan="4" bgcolor="#FFFFFF"><div align="center">
-                      <p align="center"><img src="imagenes/ima_main.jpg" width="524" height="111" /></p>
+                      <p align="center"><img src="logo_soriana2.jpg" width="191" height="55" /></p>
                   </div></td>
                 </tr>
                 <tr>
@@ -474,9 +474,9 @@ a:hover {
                           <tr>
                             <td bgcolor="#FFFFFF" colspan="15" class="style1">Rango de fechas del:&nbsp;&nbsp;<label>
                   <input name="txtf_caduc" type="text" id="txtf_caduc" size="10" readonly title="dd/mm/aaaa">
-                  </label> <img src="imagenes/cal.jpg" width="26" height="27" border="0" onClick="scwShow(scwID('txtf_caduc'), event)" />                 &nbsp;&nbsp;&nbsp;&nbsp;
+                  </label> <img src="calendar.jpg" width="26" height="27" border="0" onClick="scwShow(scwID('txtf_caduc'), event)" />                 &nbsp;&nbsp;&nbsp;&nbsp;
                   <label> al&nbsp;&nbsp;
-                  <input name="txtf_caduci" type="text" id="txtf_caduci" size="10" readonly title="dd/mm/aaaa"> <img src="imagenes/cal.jpg" width="26" height="27" border="0" onClick="scwShow(scwID('txtf_caduci'), event)" />
+                  <input name="txtf_caduci" type="text" id="txtf_caduci" size="10" readonly title="dd/mm/aaaa"> <img src="calendar.jpg" width="26" height="27" border="0" onClick="scwShow(scwID('txtf_caduci'), event)" />
                   </label>                  &nbsp;&nbsp;&nbsp;&nbsp;<label>
                     <%
 		String fechaa1_jv="";
@@ -573,7 +573,7 @@ a:hover {
                         </form>
                       </table>
                   </div></td>
-                  <td width="194" nowrap bgcolor="#FFFFFF"><img src="imagenes/px.gif" width="1" height="1" alt="" border="0" /><img src="imagenes/caps2.jpg" width="134" height="108" /></td>
+                  <td width="194" nowrap bgcolor="#FFFFFF"><img src="imagenes/px.gif" width="1" height="1" alt="" border="0" /></td>
                 </tr>
                 <tr>
                   <td colspan="4">&nbsp;</td>
