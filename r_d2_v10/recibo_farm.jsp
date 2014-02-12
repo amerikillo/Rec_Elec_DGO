@@ -169,7 +169,7 @@ try{
 		
       </tr>
 	  <%
-	  rset1=stmt1.executeQuery("select * from receta where folio_re='"+folio_re+"'");
+	  rset1=stmt1.executeQuery("select * from receta where folio_re='"+folio_re+"' and cant_sur != 0");
  
    while(rset1.next()) 
                   { 

@@ -598,7 +598,7 @@ if(but.equals("Capturar"))
 	  clave1_jv=request.getParameter("txtf_clave1");
 	  descrip1_jv=request.getParameter("txtf_descrip1");
 	  sol1_jv=request.getParameter("txtf_sol1");
-	  sur1_jv=request.getParameter("txtf_sur1");
+	  sur1_jv=request.getParameter("txtf_sol1");
 	  radiosur_jv=request.getParameter("radiosur");
 	  id_med_jv=request.getParameter("txtf_idmed");
 	  cant_jv=request.getParameter("txtf_exist");
@@ -803,10 +803,12 @@ if(but.equals("Capturar"))
 	  */
 	 
 	  //mtotalot=cant2_o1_jv+cant2_o2_jv;
-	  
- if (!(sur2>mtotalot))
+	  int tot_sol=0;
+ 		if (1==1)
 	  {
-	   
+	   if(sur2>mtotalot){
+	  	sur2=mtotalot;
+	  }
 	   
 	  //---------------------------------------------------------------------------
 	  
@@ -820,7 +822,7 @@ if(but.equals("Capturar"))
 	  if (cant2_o1_jv>0){
 	  
 	   stmt.execute("insert into receta_colectiva values ('"+foliore_jv+"','"+fechanew+"','"+reloj_jv+"','"+juris_jv+"','"+no_jur+"','"+nom_unidad+"','-','-','-','-','-','-','-','-','"+clave1_jv+"','"+descrip1_jv+"','"+cant2_o1_jv+"','"+cant2_o1_jv+"','SI','"+ela_jv+"','"+clave_jv+"','"+id_med_jv+"','"+cv_dgo_jv+"','"+cv_uni_jv+"','"+cv_finan_jv+"','"+financiamiento1+"','"+layout+"','"+partida_o1_jv+"','"+present1_jv+"','0','SURTIDO COMPLETO','RC','-','-','-','-','-','"+servicio_jv+"','"+fechanew+"','A','"+encarser_jv+"','-','-','-','-','-','-','-','-',0)");				
-					
+					sol2=sol2-cant2_o1_jv;
 					stmt1.execute("insert into modificacion values ('"+clave1_jv+"','"+descrip1_jv+"','-','-','"+cant2_o1_jv+"','"+partida_o1_jv+"','-"+cant2_o1_jv+"','0','"+fechanew+"','"+ela_jv+"','SALIDA VÍA RECETA','',current_timestamp,'"+foliore_jv+"','-','-','-','-','-',0)");
 					
 					 stmt1.execute("delete from inventario where clave='"+clave1_jv+"' and origen='"+partida_o1_jv+"'");
@@ -856,7 +858,7 @@ if(but.equals("Capturar"))
 		   sur_cap=mtotalotsur;
 		  
  			stmt.execute("insert into receta_colectiva values ('"+foliore_jv+"','"+fechanew+"','"+reloj_jv+"','"+juris_jv+"','"+no_jur+"','"+nom_unidad+"','-','-','-','-','-','-','-','-','"+clave1_jv+"','"+descrip1_jv+"','"+cant2_o3_jv+"','"+cant2_o3_jv+"','SI','"+ela_jv+"','"+clave_jv+"','"+id_med_jv+"','"+cv_dgo_jv+"','"+cv_uni_jv+"','"+cv_finan_jv+"','"+financiamiento1+"','"+layout+"','"+partida_o3_jv+"','"+present1_jv+"','0','SURTIDO COMPLETO','RC','-','-','-','-','-','"+servicio_jv+"','"+fechanew+"','A','"+encarser_jv+"','-','-','-','-','-','-','-','-',0)");	
-
+			sol2=sol2-cant2_o3_jv;
 		  if (mtotalotsur>=0){
 			stmt.execute("delete from inventario where clave='"+clave1_jv+"' and origen='"+partida_o3_jv+"'");
 		  } else {
@@ -885,6 +887,15 @@ if(but.equals("Capturar"))
 			  stmt.execute("insert into modificacion values ('"+clave1_jv+"','"+descrip1_jv+"','-','-','"+cant_02+"','"+partida_o2_jv+"','"+(-(cant2_o2_jv))+"','"+((cant_02-cant2_o2_jv))+"','"+fechanew+"','"+ela_jv+"','SALIDA VÍA RECETA','',current_timestamp,'"+foliore_jv+"','-','-','-','-','-',0)");
 			  }
 		}	
+		
+		//if (mtotalotsur>0){
+		//if (cant2_o2_jv>0){
+			   //--------------------------------Pendiente por Surtir------------------------------------------------------------------------
+			  sol2=sol2-sur_cap;
+			  if (sol2>0){
+				stmt.execute("insert into receta_colectiva values ('"+foliore_jv+"','"+fechanew+"','"+reloj_jv+"','"+juris_jv+"','"+no_jur+"','"+nom_unidad+"','-','-','-','-','-','-','-','-','"+clave1_jv+"','"+descrip1_jv+"','"+sol2+"','0','NO','"+ela_jv+"','"+clave_jv+"','"+id_med_jv+"','"+cv_dgo_jv+"','"+cv_uni_jv+"','"+cv_finan_jv+"','"+financiamiento1+"','"+layout+"','"+partida_o2_jv+"','"+present1_jv+"','0','SURTIDO COMPLETO','RC','-','-','-','-','-','"+servicio_jv+"','"+fechanew+"','A','"+encarser_jv+"','-','-','-','-','-','-','-','-',0)");
+			  }
+		
   clave1_jv="";
 	   descrip1_jv="";
 	   sol1_jv="";
@@ -1369,7 +1380,7 @@ function validar(e) { // 1
               <td class="style11"><textarea name="txtf_descrip1" cols="80" rows="2" class="style2" readonly="true"><%=descrip1_jv%></textarea></td>
               <td class="style11" align="center"><input type="text" name="txtf_sol1" size="5" value="<%=sol1_jv%>" class="style2" onKeyPress="return validar(event)" /></td>
               <td colspan="2" align="center" class="style11"><div align="left">
-                <input type="text" class="style2" name="txtf_sur1" size="5" value="<%=sur1_jv%>" onChange="setSur(this.form)" onKeyPress="return validar(event)"/>
+			  <input type="text" class="style2"  name="txtf_sur1" size="5" value="<%//=sur1_jv%>0"  onchange="setSur(this.form)" onKeyPress="return validar(event)" readonly />
               </div></td>
               <td class="style11"><input name="Submit" type="submit" class="subHeader" value="Capturar" onClick="return verificaNcol(document.forms.form)" onChange="setSur(this.form)" /></td>
             </tr>
