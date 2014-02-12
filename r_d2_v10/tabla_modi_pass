@@ -1,0 +1,53 @@
+/*
+MySQL Data Transfer
+Source Host: localhost
+Source Database: r_d
+Target Host: localhost
+Target Database: r_d
+Date: 26/03/2012 11:28:06 a.m.
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+-- ----------------------------
+-- Table structure for modificacion
+-- ----------------------------
+DROP TABLE IF EXISTS `modificacion`;
+CREATE TABLE `modificacion` (
+  `clave` varchar(255) NOT NULL default '',
+  `descrip` text NOT NULL,
+  `lote` varchar(255) NOT NULL default '',
+  `caducidad` varchar(255) NOT NULL default '',
+  `cant_anterior` int(50) NOT NULL default '0',
+  `origen` varchar(255) NOT NULL default '',
+  `cant_mov` int(50) NOT NULL default '0',
+  `cant_actual` int(50) NOT NULL default '0',
+  `fecha` date NOT NULL default '0000-00-00',
+  `usuario` varchar(255) NOT NULL default '',
+  `status` varchar(255) NOT NULL default '',
+  `obser` varchar(255) NOT NULL default '',
+  `hora` time NOT NULL default '00:00:00',
+  `folio` varchar(255) NOT NULL default '',
+  `2` varchar(255) NOT NULL default '',
+  `3` varchar(255) NOT NULL default '',
+  `4` varchar(255) NOT NULL default '',
+  `5` varchar(255) NOT NULL default '',
+  `6` varchar(255) NOT NULL default '',
+  `id` int(255) NOT NULL auto_increment,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Table structure for pass
+-- ----------------------------
+DROP TABLE IF EXISTS `pass`;
+CREATE TABLE `pass` (
+  `nombre_completo` varchar(255) NOT NULL default '',
+  `usuario` varchar(255) NOT NULL default '',
+  `pass` varchar(255) NOT NULL default '',
+  `id` int(11) unsigned NOT NULL auto_increment,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records 
+-- ----------------------------

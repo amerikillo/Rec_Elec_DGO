@@ -1,0 +1,227 @@
+/*
+MySQL Data Transfer
+Source Host: localhost
+Source Database: r_d
+Target Host: localhost
+Target Database: r_d
+Date: 03/04/2012 01:09:17 p.m.
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+-- ----------------------------
+-- Table structure for inventario
+-- ----------------------------
+DROP TABLE IF EXISTS `inventario`;
+CREATE TABLE `inventario` (
+  `clave` varchar(255) NOT NULL default '',
+  `descrip` text NOT NULL,
+  `lote` varchar(255) NOT NULL default '',
+  `caducidad` varchar(255) NOT NULL default '',
+  `cant` int(50) NOT NULL default '0',
+  `origen` varchar(255) NOT NULL default ''
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Table structure for inventario_carga
+-- ----------------------------
+DROP TABLE IF EXISTS `inventario_carga`;
+CREATE TABLE `inventario_carga` (
+  `clave` varchar(255) NOT NULL default '',
+  `descrip` text NOT NULL,
+  `lote` varchar(255) NOT NULL default '',
+  `caducidad` varchar(255) NOT NULL default '',
+  `cant` int(50) NOT NULL default '0',
+  `origen` varchar(255) NOT NULL default ''
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Table structure for inventario_carga2
+-- ----------------------------
+DROP TABLE IF EXISTS `inventario_carga2`;
+CREATE TABLE `inventario_carga2` (
+  `clave` varchar(255) NOT NULL default '',
+  `descrip` text NOT NULL,
+  `lote` varchar(255) NOT NULL default '',
+  `caducidad` varchar(255) NOT NULL default '',
+  `cant` int(50) NOT NULL default '0',
+  `origen` varchar(255) NOT NULL default '',
+  `pasti` varchar(255) NOT NULL default '',
+  `cant_p` varchar(255) NOT NULL default '',
+  `total` varchar(255) NOT NULL default ''
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Table structure for inventario_carga3
+-- ----------------------------
+DROP TABLE IF EXISTS `inventario_carga3`;
+CREATE TABLE `inventario_carga3` (
+  `clave` varchar(255) NOT NULL default '',
+  `descrip` text NOT NULL,
+  `lote` varchar(255) NOT NULL default '',
+  `caducidad` varchar(255) NOT NULL default '',
+  `cant` int(50) NOT NULL default '0',
+  `origen` varchar(255) NOT NULL default '',
+  `pasti` varchar(255) NOT NULL default '',
+  `cant_p` varchar(255) NOT NULL default '',
+  `total` varchar(255) NOT NULL default ''
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Table structure for modificacion
+-- ----------------------------
+DROP TABLE IF EXISTS `modificacion`;
+CREATE TABLE `modificacion` (
+  `clave` varchar(255) NOT NULL default '',
+  `descrip` text NOT NULL,
+  `lote` varchar(255) NOT NULL default '',
+  `caducidad` varchar(255) NOT NULL default '',
+  `cant_anterior` int(50) NOT NULL default '0',
+  `origen` varchar(255) NOT NULL default '',
+  `cant_mov` int(50) NOT NULL default '0',
+  `cant_actual` int(50) NOT NULL default '0',
+  `fecha` date NOT NULL default '0000-00-00',
+  `usuario` varchar(255) NOT NULL default '',
+  `status` varchar(255) NOT NULL default '',
+  `obser` varchar(255) NOT NULL default '',
+  `hora` time NOT NULL default '00:00:00',
+  `folio` varchar(255) NOT NULL default '',
+  `2` varchar(255) NOT NULL default '',
+  `3` varchar(255) NOT NULL default '',
+  `4` varchar(255) NOT NULL default '',
+  `5` varchar(255) NOT NULL default '',
+  `6` varchar(255) NOT NULL default '',
+  `id` int(255) NOT NULL auto_increment,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Table structure for pass
+-- ----------------------------
+DROP TABLE IF EXISTS `pass`;
+CREATE TABLE `pass` (
+  `nombre_completo` varchar(255) NOT NULL default '',
+  `usuario` varchar(255) NOT NULL default '',
+  `pass` varchar(255) NOT NULL default '',
+  `id` int(11) unsigned NOT NULL auto_increment,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Table structure for receta
+-- ----------------------------
+DROP TABLE IF EXISTS `receta`;
+CREATE TABLE `receta` (
+  `folio_re` varchar(255) NOT NULL default '',
+  `fecha_re` date NOT NULL default '0000-00-00',
+  `hora` varchar(255) NOT NULL default '',
+  `juris` varchar(255) NOT NULL default '',
+  `no_juris` varchar(255) NOT NULL default '',
+  `unidad` varchar(255) NOT NULL default '',
+  `nombre_pac` varchar(255) NOT NULL default '',
+  `edad` varchar(255) NOT NULL default '',
+  `folio_sp` varchar(255) NOT NULL default '',
+  `afiliado` varchar(255) NOT NULL default '',
+  `univer_medi` varchar(255) NOT NULL default '',
+  `cedula_medi` varchar(255) NOT NULL default '',
+  `nombre_medi` varchar(255) NOT NULL default '',
+  `causes` varchar(255) NOT NULL default '',
+  `clave` varchar(255) NOT NULL default '',
+  `descrip` varchar(255) NOT NULL default '',
+  `cant_sol` varchar(255) NOT NULL default '',
+  `cant_sur` varchar(255) NOT NULL default '',
+  `surtido` varchar(255) NOT NULL default '',
+  `encargado` varchar(255) NOT NULL default '',
+  `clave_uni` varchar(255) NOT NULL default '',
+  `id_med` varchar(255) NOT NULL default '',
+  `cv_uni_dgo` varchar(255) NOT NULL default '',
+  `cv_tipo_unidad` varchar(255) NOT NULL default '',
+  `cv_financ` varchar(255) NOT NULL default '',
+  `fuente` varchar(255) NOT NULL default '',
+  `layout` varchar(255) NOT NULL default '',
+  `partida` varchar(255) NOT NULL default '',
+  `present` varchar(255) NOT NULL default '',
+  `cant_pendi` varchar(255) NOT NULL default '',
+  `status_receta` varchar(255) NOT NULL default '',
+  `tipo_receta` varchar(255) NOT NULL default '',
+  `precio` varchar(255) NOT NULL default '',
+  `precio_tt` varchar(255) NOT NULL default '',
+  `lote` varchar(255) NOT NULL default '',
+  `caducidad` varchar(255) NOT NULL default '',
+  `carnet` varchar(255) NOT NULL default '',
+  `servicio` varchar(255) NOT NULL default '',
+  `date` date NOT NULL default '0000-00-00',
+  `tipo_cap` varchar(255) NOT NULL default '',
+  `7` varchar(255) NOT NULL default '',
+  `8` varchar(255) NOT NULL default '',
+  `9` varchar(255) NOT NULL default '',
+  `10` varchar(255) NOT NULL default '',
+  `11` varchar(255) NOT NULL default '',
+  `12` varchar(255) NOT NULL default '',
+  `13` varchar(255) NOT NULL default '',
+  `14` varchar(255) NOT NULL default '',
+  `15` varchar(255) NOT NULL default '',
+  `id` int(11) unsigned NOT NULL auto_increment,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Table structure for receta_colectiva
+-- ----------------------------
+DROP TABLE IF EXISTS `receta_colectiva`;
+CREATE TABLE `receta_colectiva` (
+  `folio_re` varchar(255) NOT NULL default '',
+  `fecha_re` date NOT NULL default '0000-00-00',
+  `hora` varchar(255) NOT NULL default '',
+  `juris` varchar(255) NOT NULL default '',
+  `no_juris` varchar(255) NOT NULL default '',
+  `unidad` varchar(255) NOT NULL default '',
+  `nombre_pac` varchar(255) NOT NULL default '',
+  `edad` varchar(255) NOT NULL default '',
+  `folio_sp` varchar(255) NOT NULL default '',
+  `afiliado` varchar(255) NOT NULL default '',
+  `univer_medi` varchar(255) NOT NULL default '',
+  `cedula_medi` varchar(255) NOT NULL default '',
+  `nombre_medi` varchar(255) NOT NULL default '',
+  `causes` varchar(255) NOT NULL default '',
+  `clave` varchar(255) NOT NULL default '',
+  `descrip` varchar(255) NOT NULL default '',
+  `cant_sol` varchar(255) NOT NULL default '',
+  `cant_sur` varchar(255) NOT NULL default '',
+  `surtido` varchar(255) NOT NULL default '',
+  `encargado` varchar(255) NOT NULL default '',
+  `clave_uni` varchar(255) NOT NULL default '',
+  `id_med` varchar(255) NOT NULL default '',
+  `cv_uni_dgo` varchar(255) NOT NULL default '',
+  `cv_tipo_unidad` varchar(255) NOT NULL default '',
+  `cv_financ` varchar(255) NOT NULL default '',
+  `fuente` varchar(255) NOT NULL default '',
+  `layout` varchar(255) NOT NULL default '',
+  `partida` varchar(255) NOT NULL default '',
+  `present` varchar(255) NOT NULL default '',
+  `cant_pendi` varchar(255) NOT NULL default '',
+  `status_receta` varchar(255) NOT NULL default '',
+  `tipo_receta` varchar(255) NOT NULL default '',
+  `precio` varchar(255) NOT NULL default '',
+  `precio_tt` varchar(255) NOT NULL default '',
+  `lote` varchar(255) NOT NULL default '',
+  `caducidad` varchar(255) NOT NULL default '',
+  `carnet` varchar(255) NOT NULL default '',
+  `servicio` varchar(255) NOT NULL default '',
+  `5` varchar(255) NOT NULL default '',
+  `6` varchar(255) NOT NULL default '',
+  `7` varchar(255) NOT NULL default '',
+  `8` varchar(255) NOT NULL default '',
+  `9` varchar(255) NOT NULL default '',
+  `10` varchar(255) NOT NULL default '',
+  `11` varchar(255) NOT NULL default '',
+  `12` varchar(255) NOT NULL default '',
+  `13` varchar(255) NOT NULL default '',
+  `14` varchar(255) NOT NULL default '',
+  `15` varchar(255) NOT NULL default '',
+  `id` int(11) unsigned NOT NULL auto_increment,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records 
+-- ----------------------------
