@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html; charset=iso-8859-1" language="java" import="java.sql.*" errorPage="" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -134,7 +133,7 @@ Connection conn =
 rset2=stmt1.executeQuery("select * from juris where nombre='"+unidad2_jv+"'and usuario='"+encar_jv+"' and contra='"+pass_jv+"' ");
           while (rset2.next()) 
                   {
-				  out.print(rset2.getString("perfil"));
+				  //out.print(rset2.getString("perfil"));
 				  perfil=rset2.getString("perfil");
 				  cont3++; 
 				  }
@@ -241,7 +240,7 @@ if (cont3>0)
 				  {
                        customerIds = rset_01.getInt("no_rec");
                          }
-						 out.print(customerIds);
+						 //out.print(customerIds);
 		%>
 		<script>
 		alert("DATOS CORRECTOS")
@@ -370,11 +369,11 @@ a:hover {
       <p>&nbsp;</p>
       <p class="style1"><a href="carga_inven_clave.jsp" class="style1">CARGA INVENTARIO</a></p>
       <p class="style1"><a href="index_reporte.jsp" class="style1">REPORTE VALIDACION</a></p>
-	  <p class="style1"><a href="pass_compras.jsp" class="style1">REPORTE SOLICITADO/SURTIDO</a></p>
       <p class="style1"><a href="inventarios.jsp" class="style1">VER EXISTENCIAS</a></p>
       <p><a href="index_reporte_consumo.jsp" class="style1">CONSUMO SEMANAL </a></p>
 	  <p><a href="index_movi.jsp" class="style1">MOVIMIENTO AL INVENTARIO </a></p>
 	 <p><a href="kardex.jsp" class="style1">KARDEX </a></p>
+	 <p class="style1"><a href="pass_compras.jsp" class="style1">REPORTE SOLICITADO/SURTIDO</a></p>
      <p><a href="index_diario.jsp" class="style1">REPORTE DIARIO</a></p>
 	 
 	  <p><!--a href="index_entrega.jsp" class="style1">ENTREGA DIRECTA SSD </a--></p>

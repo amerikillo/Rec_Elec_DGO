@@ -408,7 +408,7 @@ if(but.equals("Clave"))
 		  part_jv="2";
 		  }
 	  //
-	  out.println("select * from inventario where clave='"+clave2_jv+"' and origen='"+part_jv+"' ");
+	  //out.println("select * from inventario where clave='"+clave2_jv+"' and origen='"+part_jv+"' ");
 	  rset_org= stmt.executeQuery("select * from inventario where clave='"+clave2_jv+"' and origen='"+part_jv+"' ");
 	  
 	  while(rset_org.next())
@@ -1071,14 +1071,14 @@ function foco_inicial(){
 	
 }
 function foco_fecha(){
-	if (document.form.txtf_t3.value!="2013"){
+	if (document.form.txtf_t3.value!="2014"){
 	mitexto=document.form.txtf_t3.value;
 	document.form.txtf_t3.value=mitexto;
 	document.form.txtf_t3.focus();
 	//document.form.txtf_t3.value=mitexto;
 	}
 	/*else {
-	document.form.txtf_t3.value="2013";
+	document.form.txtf_t3.value="2014";
 	document.form.txtf_foliore.focus();
 	}*/
 }
@@ -1151,7 +1151,7 @@ function foco_fecha(){
 			        <strong>                    /</strong>
                     <input name="txtf_t2" type="text" size="1" maxlength="2" onKeyUp="putMonthss()" value="<%=t2_jv%>" onKeyPress="return handleEnter(this, event)" />
                     <strong>                    /</strong>
-                    <input name="txtf_t3" type="text" size="2" maxlength="4" onKeyUp="putYearss(this.form)" value="2013" onBlur="foco_fecha();" onKeyPress="return foco_fecha();"/><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>&nbsp;<span class="Estilo7">&nbsp;&nbsp;DD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AAAA</span></strong></td>
+                    <input name="txtf_t3" type="text" size="2" maxlength="4" onKeyUp="putYearss(this.form)" value="2014" onBlur="foco_fecha();" onKeyPress="return foco_fecha();"/><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>&nbsp;<span class="Estilo7">&nbsp;&nbsp;DD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AAAA</span></strong></td>
               </tr>
           </table>          </td>
           <td width="197"><table width="167" height="0%" border="0" cellpadding="2">
