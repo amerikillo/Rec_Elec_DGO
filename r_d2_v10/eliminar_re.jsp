@@ -126,7 +126,7 @@ int cantinv2=0,cont1=0,cant2_jv=0,mtotal=0;
 	Statement stmt_inv2 = null ;
 	Statement stmt1 = null;
 	Class.forName("org.gjt.mm.mysql.Driver");
-	 Connection conn_001 = DriverManager.getConnection("jdbc:mysql://localhost/r_d");
+	 Connection conn_001 = DriverManager.getConnection("jdbc:mysql://localhost/r_d", "root", "eve9397");
 stmt = conn_001.createStatement();
 stmt_re = conn_001.createStatement();
 stmt_inv = conn_001.createStatement();
@@ -204,7 +204,7 @@ public void eliminarReg(String id_inv,int ban) {
 			
      		Connection conn = 
      		// cambie hoy DriverManager.getConnection("jdbc:mysql://localhost/gnk_ubi");
-			DriverManager.getConnection("jdbc:mysql://localhost/r_d");         
+			DriverManager.getConnection("jdbc:mysql://localhost/r_d", "root", "eve9397");         
      		stmt_elimDS = conn.createStatement();
 			stmt__001 = conn.createStatement();
 			System.out.print("id2"+idDS); 

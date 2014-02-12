@@ -3,7 +3,7 @@ import="java.text.ParseException" import="java.text.SimpleDateFormat" import="ja
 <%
 Class.forName("org.gjt.mm.mysql.Driver");
 
-				  Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/r_d");
+				  Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/r_d", "root", "eve9397");
                   Statement stmt = conn.createStatement();
 				  Statement stmt1 = conn.createStatement();
 				  Statement stmt3 = conn.createStatement();
@@ -169,7 +169,7 @@ try{
 		
       </tr>
 	  <%
-	  rset1=stmt1.executeQuery("select * from receta where folio_re='"+folio_re+"'");
+	  rset1=stmt1.executeQuery("select * from receta where folio_re='"+folio_re+"' and cant_sur != 0");
  
    while(rset1.next()) 
                   { 

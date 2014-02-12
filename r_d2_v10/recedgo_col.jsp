@@ -311,6 +311,20 @@ descripmed_jv=request.getParameter("select_servi2");
 					 </script>
 					 <%
 					 }else{
+					 
+					 rset2= stmt.executeQuery("select * from clave_med where codigo='"+med1_jv+"' ");
+	  
+					  while(rset2.next())
+					  {
+	                 clave1_jv=rset2.getString("clave");
+ 					 descrip1_jv=rset2.getString("descrip");
+					 present1_jv=rset2.getString("present");
+					 id_med_jv=rset2.getString("id_med");
+					 cant_jv="0";
+					 part_jv="2";
+					// part_jv=rset2.getString("part");
+					 }
+					 /*
 					 %>
 					 <script>
 					 alert("Clave Sin Existencia")
@@ -321,7 +335,8 @@ descripmed_jv=request.getParameter("select_servi2");
 					 descrip1_jv="";
 					 cant_jv="";
 					 part_jv="";
-					 //financiamiento=pos[];
+					 //financiamiento=pos[];*/
+					 
 					 }
 					 }else{
 					 
@@ -893,7 +908,7 @@ if(but.equals("Capturar"))
 			   //--------------------------------Pendiente por Surtir------------------------------------------------------------------------
 			  sol2=sol2-sur_cap;
 			  if (sol2>0){
-				stmt.execute("insert into receta_colectiva values ('"+foliore_jv+"','"+fechanew+"','"+reloj_jv+"','"+juris_jv+"','"+no_jur+"','"+nom_unidad+"','-','-','-','-','-','-','-','-','"+clave1_jv+"','"+descrip1_jv+"','"+sol2+"','0','NO','"+ela_jv+"','"+clave_jv+"','"+id_med_jv+"','"+cv_dgo_jv+"','"+cv_uni_jv+"','"+cv_finan_jv+"','"+financiamiento1+"','"+layout+"','"+partida_o2_jv+"','"+present1_jv+"','0','SURTIDO COMPLETO','RC','-','-','-','-','-','"+servicio_jv+"','"+fechanew+"','A','"+encarser_jv+"','-','-','-','-','-','-','-','-',0)");
+				stmt.execute("insert into receta_colectiva values ('"+foliore_jv+"','"+fechanew+"','"+reloj_jv+"','"+juris_jv+"','"+no_jur+"','"+nom_unidad+"','-','-','-','-','-','-','-','-','"+clave1_jv+"','"+descrip1_jv+"','"+sol2+"','0','NO','"+ela_jv+"','"+clave_jv+"','"+id_med_jv+"','"+cv_dgo_jv+"','"+cv_uni_jv+"','"+cv_finan_jv+"','"+financiamiento1+"','"+layout+"','2','"+present1_jv+"','0','SURTIDO COMPLETO','RC','-','-','-','-','-','"+servicio_jv+"','"+fechanew+"','A','"+encarser_jv+"','-','-','-','-','-','-','-','-',0)");
 			  }
 		
   clave1_jv="";
