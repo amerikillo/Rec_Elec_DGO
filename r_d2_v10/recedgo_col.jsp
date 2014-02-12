@@ -311,8 +311,18 @@ descripmed_jv=request.getParameter("select_servi2");
 					 </script>
 					 <%
 					 }else{
-					 
-					 rset2= stmt.executeQuery("select * from clave_med where codigo='"+med1_jv+"' ");
+					 %>
+					 <script>
+					 alert("Clave Sin Existencia, quedará en pendiente por surtir")
+					 </script>
+					 <%
+ 					 /*med1_jv="";
+					 clave1_jv="";
+					 descrip1_jv="";
+					 cant_jv="";
+					 part_jv="";
+					 //financiamiento=pos[];*/
+					 rset2= stmt.executeQuery("select * from clave_med where descrip='"+descripmed_jv+"' ");
 	  
 					  while(rset2.next())
 					  {
@@ -324,19 +334,6 @@ descripmed_jv=request.getParameter("select_servi2");
 					 part_jv="2";
 					// part_jv=rset2.getString("part");
 					 }
-					 /*
-					 %>
-					 <script>
-					 alert("Clave Sin Existencia")
-					 </script>
-					 <%
- 					 med1_jv="";
-					 clave1_jv="";
-					 descrip1_jv="";
-					 cant_jv="";
-					 part_jv="";
-					 //financiamiento=pos[];*/
-					 
 					 }
 					 }else{
 					 
@@ -560,15 +557,27 @@ if(but.equals("Clave"))
 					 }else{
 					 %>
 					 <script>
-					 alert("Clave Sin Existencia")
+					 alert("Clave Sin Existencia, quedará como pendiente por surtir")
 					 </script>
 					 <%
- 					 med1_jv="";
+ 					 /*med1_jv="";
 					 clave1_jv="";
 					 descrip1_jv="";
 					 cant_jv="";
 					 part_jv="";
-					 //financiamiento=pos[];
+					 //financiamiento=pos[];*/
+					 rset2= stmt.executeQuery("select * from clave_med where codigo='"+med1_jv+"' ");
+	  
+					  while(rset2.next())
+					  {
+	                 clave1_jv=rset2.getString("clave");
+ 					 descrip1_jv=rset2.getString("descrip");
+					 present1_jv=rset2.getString("present");
+					 id_med_jv=rset2.getString("id_med");
+					 cant_jv="0";
+					 part_jv="2";
+					// part_jv=rset2.getString("part");
+					 }
 					 }
 					 }else{
 					 
