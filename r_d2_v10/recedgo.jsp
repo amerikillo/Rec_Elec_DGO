@@ -440,6 +440,11 @@ if(but.equals("Clave"))
 	  
 					  while(rset2.next())
 					  {
+					  %>
+					 <script>
+					 alert("Clave Sin Existencia, quedará como pendiente por surtir")
+					 </script>
+					 <%
 	                 clave1_jv=rset2.getString("clave");
  					 descrip1_jv=rset2.getString("descrip");
 					 present1_jv=rset2.getString("present");
@@ -1196,7 +1201,7 @@ function foco_fecha(){
                 <input name="txtf_cb" type="text" id="txtf_cb"  onchange="<%=but="Mostrar"%>" />
               <input name="Submit" type="submit" class="subHeader" value="Mostrar"/>&nbsp;&nbsp;
 			 
-			 <select name="slct_afiliados" id="slct_afiliados" class="style2" onkeypress="return handleEnter(this, event)" onChange="putNom(this.form)">
+			 <select name="slct_afiliados" id="slct_afiliados" class="style2" onkeypress="return handleEnter(this, event)" onChange="putNom(this.form);">
         <option>---- AFILIADOS------</option>
         <%
 		   if(afi>0)
@@ -1269,7 +1274,7 @@ function foco_fecha(){
                 <input name="radio_pro" type="radio" value="OP" onKeyPress="return handleEnter(this, event)" />
                 <img src="oportunidades.jpg" width="107" height="32" /></label></td>
               <td class="style11"><label>
-                <input name="radio_pro" type="radio" value="SP"  onKeyPress="return handleEnter(this, event)" />
+                <input name="radio_pro" type="radio" value="SP" checked="checked"  onKeyPress="return handleEnter(this, event)" />
                 <img src="salud_seguro_popu.jpg" width="107" height="32" /></label></td>
               <td class="style11"><input name="txtf_foliosp" type="text" class="style13" value="<%=folio_jv%>" size="22
               " onKeyPress="return handleEnter(this, event)"/></td>
@@ -1281,7 +1286,7 @@ function foco_fecha(){
           <td height="38" colspan="3" class="style4"><table width="763" border="0" align="center" cellpadding="2">
             <tr>
               <td width="755" class="style2"><a href="medico.jsp" target="_blank">CÓDIGO</a>: 
-                <input name="txtf_medico" type="text" size="10"  onchange="<%=but2="Medico"%>" onKeyPress="return handleEnter(this, event)" /><input name="Submit" type="submit" class="subHeader" value="Médico" />
+                <input name="txtf_medico" id="txtf_medico" type="text" size="10"  onchange="<%=but2="Medico"%>" onKeyPress="return handleEnter(this, event)" /><input name="Submit" type="submit" class="subHeader" value="Médico" />
               NOMBRE:
               <input name="txtf_nomed" type="text" class="style13" value="<%=nomed_jv%>" size="35"  onKeyPress="return handleEnter(this, event)" />
               <span class="style2">C&Eacute;DULA: 
@@ -1295,7 +1300,7 @@ function foco_fecha(){
             
             <tr>
               <td colspan="3" class="style11">Ingrese Clave:
-              <input type="text" name="txtf_med1" size="10" value="<%=med1_jv%>"  onkeypress="return handleEnter(this, event)"/><input name="Submit" type="submit" class="subHeader" value="Clave" />&nbsp;<a href="index_carga_clave.jsp" target="_blank">Agregar Clave al Inventario</a></td>
+              <input type="text" name="txtf_med1" size="10" value="<%=med1_jv%>" id="txtf_med1" onkeypress="return handleEnter(this, event)"/><input name="Submit" type="submit" class="subHeader" value="Clave" />&nbsp;<a href="index_carga_clave.jsp" target="_blank">Agregar Clave al Inventario</a></td>
               <td colspan="3" class="style11"><span class="style2"><span class="Estilo13">TOTAL EXISTENCIAS:</span><span class="Estilo5"> <%=sumatotal%>&nbsp;</span></span></td>
               <td width="155" class="style11"><label>
                 <div align="center">

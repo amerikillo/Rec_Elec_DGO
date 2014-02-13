@@ -9525,7 +9525,7 @@ function putNom(form)
 		form.txtf_foliosp.value =consultaPaciente[3];
 	
 	}
-	
+	form.txtf_medico.focus();
 }
 
 

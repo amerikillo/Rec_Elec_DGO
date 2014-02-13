@@ -1089,6 +1089,9 @@ function validar(e) { // 1
 	{
 		if (document.form.txtf_descrip1.value==""){
 			document.form.txtf_med1.focus();
+			if(document.form.txtf_encarser.value==""){
+				document.form.select_servi.focus();
+			}
 		}
 		else{
 			document.form.txtf_sol1.focus();

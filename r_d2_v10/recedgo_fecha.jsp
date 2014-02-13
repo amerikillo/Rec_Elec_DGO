@@ -438,6 +438,11 @@ if(but.equals("Clave"))
 					// part_jv=rset2.getString("part");
 					 }
 					 }else{
+					 %>
+					 <script>
+					 alert("Clave Sin Existencia, quedará en pendiente por surtir")
+					 </script>
+					 <%
 					 rset2= stmt.executeQuery("select * from clave_med where codigo='"+med1_jv+"' ");
 	  
 					  while(rset2.next())

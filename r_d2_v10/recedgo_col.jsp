@@ -1108,17 +1108,18 @@ function validar(e) { // 1
 							{
 								document.form.txtf_med1.focus();
 							}
-									else{
-										document.form.txtf_sol1.focus();
-									}
+							else{
+								document.form.txtf_sol1.focus();
+							}
 			}
 			else{
 				document.form.txtf_t1.focus();
 			}
 			if (document.form.txtf_t3.value=="")
 			{
-			document.form.txtf_t1.focus();
+				document.form.txtf_t1.focus();
 			}
+			
 	}
 	
     </script>
@@ -1180,7 +1181,7 @@ function validar(e) { // 1
 			        <strong>                    /</strong>
                     <input name="txtf_t2" type="text" size="1" maxlength="2" onKeyUp="putMonthss22()" value="<%=t2_jv%>" onKeyPress="return handleEnter(this, event)" />
                     <strong>                    /</strong>
-                    <input name="txtf_t3" type="text" size="2" maxlength="4" onKeyUp="putYearss2(this.form)" value="2013<%//=t3_jv%>" onKeyPress="return handleEnter(this, event)" /><br />
+                    <input name="txtf_t3" type="text" size="2" maxlength="4" onKeyUp="putYearss2(this.form)" value="2014<%//=t3_jv%>" onKeyPress="return handleEnter(this, event)" /><br />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Estilo5">&nbsp;<span class="Estilo9">DD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AAAA</span></span>              </tr>
             </table>
           <label>          </label></td>
