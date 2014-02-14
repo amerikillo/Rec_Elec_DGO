@@ -150,15 +150,19 @@ rset2= stmt2.executeQuery("select * from receta where id='"+eliminar_jv+"'");
 	 t1_jv=rset2.getString("fecha_re");
 	 }  
 	 
-	  rset_org= stmt3.executeQuery("select * from inventario where clave='"+med1_jv+"' and origen='"+part_jv+"' ");
+	  rset_org= stmt3.executeQuery("select sum(cant) from inventario where clave='"+med1_jv+"'");
 	  
 	  while(rset_org.next())
 	  {
-	   cant_jv=rset_org.getString("cant");
+	   cant_jv=rset_org.getString("sum(cant)");
+	  }
+	  try{
 	   cant2_jv=Integer.parseInt(cant_jv);
-	  }  
+	   } catch (Exception e) {
+	   cant2_jv=0;
+	   cant_jv="0";
+	   }
 	   
-	
 
 if(but.equals("Modificar"))
      {
@@ -587,11 +591,10 @@ function validar(e) { // 1
               <td ><span class="style2">CANT. SOL</span></td>
               <td ><span class="style2">CANT. SUR </span></td>
               <td colspan="2" class="style11"><span class="style2">EXIST</span>&nbsp;<input type="text" name="txtf_exist" size="1"  class="style2" value="<%=cant_jv%>" onKeyPress="return handleEnter(this, event)" readonly="true"/>
-                <span class="style2">Origen</span>
+                <!--span class="style2">Origen</span>
                   <input name="txtf_part" type="text" class="style2" value="<%=part_jv%>" size="1" readonly="true" />
                 <span class="style2">Cant.</span>
-                  <input name="txtf_cant2" type="text" class="style2" value="<%=cant22_jv%>" size="1" readonly="true" />
-                  **</td>
+                  <input name="txtf_cant2" type="text" class="style2" value="<%=cant22_jv%>" size="1" readonly="true" /--></td>
             </tr>
 			<%
 			while (rset1.next())
@@ -602,7 +605,7 @@ function validar(e) { // 1
               <td class="style11"><input type="text" name="txtf_clave1" size="10" value="<%=rset1.getString("clave")%>"  readonly="true"/></td>
               <td class="style11"><textarea name="txtf_descrip1" cols="25" readonly="true"><%=rset1.getString("descrip")%></textarea></td>
               <td class="style11"><input type="text" name="txtf_sol1" size="5" value="<%=rset1.getString("cant_sol")%>" onKeyPress="return validar(event)"/></td>
-              <td class="style11"><input type="text" name="txtf_sur1" size="5" value="<%=rset1.getString("cant_sur")%>" readonly="readonly" onchange="setSur1(this.form)" onKeyPress="return validar(event)"/></td>
+              <td class="style11"><input type="text" name="txtf_sur1" size="5" value="<%=rset1.getString("cant_sur")%>" readonly="readonly" onChange="setSur1(this.form)" onKeyPress="return validar(event)"/></td>
 			  
 			  <%}%>
               <td colspan="2" class="style11"><input name="Submit" type="submit" class="but" value="Modificar" onChange="setSur1(this.form)" onClick="return verificaN1(document.forms.form)"/>&nbsp; <a href="javascript:history.back(1)">Regresar</a></td>

@@ -158,13 +158,18 @@ rset2= stmt2.executeQuery("select * from receta_colectiva where id='"+eliminar_j
 	 
 	 }  
 	 
-	  rset_org= stmt3.executeQuery("select * from inventario where clave='"+med1_jv+"' and origen='"+part_jv+"' ");
+	  rset_org= stmt3.executeQuery("select sum(cant) from inventario where clave='"+med1_jv+"'");
 	  
 	  while(rset_org.next())
 	  {
-	   cant_jv=rset_org.getString("cant");
+	   cant_jv=rset_org.getString("sum(cant)");
+	  }
+	  try{
 	   cant2_jv=Integer.parseInt(cant_jv);
-	  }  
+	   } catch (Exception e) {
+	   cant2_jv=0;
+	   cant_jv="0";
+	   }
 	   
 	   
 	
@@ -581,10 +586,10 @@ if(but.equals("Modificar"))
               <td class="style11"><span class="style2">CANT. SUR </span></td>
               <td colspan="2" class="style2">EXIST&nbsp;
                 <input type="text" name="txtf_exist" size="1"  class="style2" value="<%=cant_jv%>" onKeyPress="return handleEnter(this, event)" readonly="true"/>
-                <span class="style2">Origen</span>
+                <!--span class="style2">Origen</span>
                   <input name="txtf_part" type="text" class="style2" value="<%=part_jv%>" size="1" readonly="true" />
                 <span class="style2">Cant.</span>
-              <input name="txtf_cant2" type="text" class="style2" value="<%=cant22_jv%>" size="1" readonly="true" /></td>
+              <input name="txtf_cant2" type="text" class="style2" value="<%=cant22_jv%>" size="1" readonly="true" /--></td>
             </tr>
 			<%
 			while (rset1.next())
