@@ -602,7 +602,7 @@ function validar(e) { // 1
               <td class="style11"><input type="text" name="txtf_clave1" size="10" value="<%=rset1.getString("clave")%>"  readonly="true"/></td>
               <td class="style11"><textarea name="txtf_descrip1" cols="25" readonly="true"><%=rset1.getString("descrip")%></textarea></td>
               <td class="style11"><input type="text" name="txtf_sol1" size="5" value="<%=rset1.getString("cant_sol")%>" onKeyPress="return validar(event)"/></td>
-              <td class="style11"><input type="text" name="txtf_sur1" size="5" value="<%=rset1.getString("cant_sur")%>"  onchange="setSur1(this.form)" onKeyPress="return validar(event)"/></td>
+              <td class="style11"><input type="text" name="txtf_sur1" size="5" value="<%=rset1.getString("cant_sur")%>" readonly="readonly" onchange="setSur1(this.form)" onKeyPress="return validar(event)"/></td>
 			  
 			  <%}%>
               <td colspan="2" class="style11"><input name="Submit" type="submit" class="but" value="Modificar" onChange="setSur1(this.form)" onClick="return verificaN1(document.forms.form)"/>&nbsp; <a href="javascript:history.back(1)">Regresar</a></td>
