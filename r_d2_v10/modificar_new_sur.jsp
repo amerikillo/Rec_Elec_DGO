@@ -162,23 +162,214 @@ rset2= stmt2.executeQuery("select * from receta where id='"+eliminar_jv+"'");
 
 if(but.equals("Modificar"))
      {
-	
+	if (Integer.parseInt(request.getParameter("txtf_sur1"))==0){
 	  sol1_jv=request.getParameter("txtf_sol1");
 	  sur1_jv=request.getParameter("txtf_sur1");
 	  date_jv=request.getParameter("txtf_date1");
 	  
 	 sol2 = Integer.parseInt(sol1_jv); 
 	  sur2 = Integer.parseInt(sur1_jv);
-
-
-rset_001 = stmt_001.executeQuery("SELECT STR_TO_DATE('"+date_jv+"', '%d/%m/%Y')"); 
+	  rset_001 = stmt_001.executeQuery("SELECT STR_TO_DATE('"+date_jv+"', '%d/%m/%Y')"); 
                     while(rset_001.next()){
                     date_jv= rset_001.getString("STR_TO_DATE('"+date_jv+"', '%d/%m/%Y')");
 					}
 
+			rset_re = stmt_re.executeQuery("select * from receta WHERE id='"+eliminar_jv+"'");
+			while (rset_re.next())
+			{
+			cantsur=rset_re.getString("cant_sur");
+			cant2_jv = Integer.parseInt(cantsur);
+			clavesur=rset_re.getString("clave");
+			partidasur=rset_re.getString("partida");
+			descripsur=rset_re.getString("descrip");
+			}
+	int sol = Integer.parseInt(sol1_jv);
+	int sol1=Integer.parseInt(sol1_jv);
+	int sur=0;
+	int cant_o3=0, cant_o2=0, cant_o1=0;
+	status="";
 
+	String receta="insert into receta values (";
+	rset3 = stmt3.executeQuery("select * from receta where id='"+eliminar_jv+"'");
+	while(rset3.next()){
+		for(int i = 1; i<50;i++){
+			receta=receta+" '"+rset3.getString(i)+"',";
+		}
+		receta=receta+" '0'";
+	}
+	receta=receta+")";
+	//out.println(receta+"<br>");
+	//------------------------------------------Origen 1--------------------------------------------------------------
+	rset_re = stmt_re.executeQuery("select cant from inventario where clave = '"+clavesur+"' and origen = 1;");
+	while(rset_re.next()){
+		cant_o3=Integer.parseInt(rset_re.getString("cant"));
+	}
+	if (sol>0){
+		if (cant_o3>0){
+			sol = sol-cant_o3;
+			if (sol<=0){
+				sur=sol1;
+				sol=0;
+				status="SURTIDO";
+			} else {
+				sur = cant_o3;
+				sol1=(sol);
+				status="SURTIDO";
+			}
+			//out.println("update receta set cant_sol='"+sur+"',cant_sur='"+sur+"',cant_pendi='0',status_receta='"+status+"' where id='"+eliminar_jv+"'");
+			receta="insert into receta values (";
+			rset3 = stmt3.executeQuery("select * from receta where id='"+eliminar_jv+"'");
+			while(rset3.next()){
+				for(int i = 1; i<17;i++){
+					receta=receta+" '"+rset3.getString(i)+"',";
+				}
+				receta=receta+"'"+sur+"', '"+sur+"', 'SI', ";
+				for(int i = 20; i<28;i++){
+					receta=receta+" '"+rset3.getString(i)+"',";
+				}
+				receta=receta+"'1', ";
+				for(int i = 29; i<31;i++){
+					receta=receta+" '"+rset3.getString(i)+"',";
+				}
+				receta=receta+"'SURTIDO', ";
+				for(int i = 32; i<50;i++){
+					receta=receta+" '"+rset3.getString(i)+"',";
+				}
+				receta=receta+" '0'";
+			}
+				
+			receta=receta+")";
+			stmt3.execute("insert into modificacion values ('"+clavesur+"','"+descripsur+"','-','-','"+cant_o3+"','1','-"+cant_o3+"','0','"+date_jv+"','"+encar_jv+"','SALIDA VÍA RECETA','',current_timestamp,'"+foliore_jv+"','-','-','-','-','-',0)");
+			//out.println("<br>");
+			stmt3.execute("update inventario set cant='"+(cant_o3-sur)+"' where clave='"+clavesur+"' and origen='1'");
+			stmt3.execute(receta);
+			//out.println("<br>"+sol+"<br>");
+		}
+	}
+	//------------------------------------------Origen 3--------------------------------------------------------------
+	cant_o3=0;
+	rset_re = stmt_re.executeQuery("select cant from inventario where clave = '"+clavesur+"' and origen = 3;");
+	while(rset_re.next()){
+		cant_o3=Integer.parseInt(rset_re.getString("cant"));
+	}
+	if (sol>0){
+		if (cant_o3>0){
+			sol = sol-cant_o3;
+			if (sol<=0){
+				sur=sol1;
+				sol=0;
+				status="SURTIDO";
+			} else {
+				sur = cant_o3;
+				sol1=(sol);
+				status="SURTIDO";
+			}
+			//out.println("update receta set cant_sol='"+sur+"',cant_sur='"+sur+"',cant_pendi='0',status_receta='"+status+"' where id='"+eliminar_jv+"'");
+			receta="insert into receta values (";
+			rset3 = stmt3.executeQuery("select * from receta where id='"+eliminar_jv+"'");
+			while(rset3.next()){
+				for(int i = 1; i<17;i++){
+					receta=receta+" '"+rset3.getString(i)+"',";
+				}
+				receta=receta+"'"+sur+"', '"+sur+"', 'SI', ";
+				for(int i = 20; i<28;i++){
+					receta=receta+" '"+rset3.getString(i)+"',";
+				}
+				receta=receta+"'3', ";
+				for(int i = 29; i<31;i++){
+					receta=receta+" '"+rset3.getString(i)+"',";
+				}
+				receta=receta+"'SURTIDO', ";
+				for(int i = 32; i<50;i++){
+					receta=receta+" '"+rset3.getString(i)+"',";
+				}
+				receta=receta+" '0'";
+			}
+				
+			receta=receta+")";
+			stmt3.execute("insert into modificacion values ('"+clavesur+"','"+descripsur+"','-','-','"+cant_o3+"','3','-"+cant_o3+"','0','"+date_jv+"','"+encar_jv+"','SALIDA VÍA RECETA','',current_timestamp,'"+foliore_jv+"','-','-','-','-','-',0)");
+			//out.println("<br>");
+			stmt3.execute("update inventario set cant='"+(cant_o3-sur)+"' where clave='"+clavesur+"' and origen='3'");
+			stmt3.execute(receta);
+			//out.println("<br>"+sol+"<br>");
+		}
+	}
+	//------------------------------------------Origen 2--------------------------------------------------------------
+	cant_o3=0;
+	rset_re = stmt_re.executeQuery("select cant from inventario where clave = '"+clavesur+"' and origen = 2;");
+	while(rset_re.next()){
+		cant_o3=Integer.parseInt(rset_re.getString("cant"));
+	}
+	if (sol>0){
+		if (cant_o3>0){
+			sol = sol-cant_o3;
+			if (sol<=0){
+				sur=sol1;
+				sol=0;
+				status="SURTIDO";
+			} else {
+				sur = cant_o3;
+				sol1=(sol);
+				status="SURTIDO";
+			}
+			//out.println("update receta set cant_sol='"+sur+"',cant_sur='"+sur+"',cant_pendi='0',status_receta='"+status+"' where id='"+eliminar_jv+"'");
+			receta="insert into receta values (";
+			rset3 = stmt3.executeQuery("select * from receta where id='"+eliminar_jv+"'");
+			while(rset3.next()){
+				for(int i = 1; i<17;i++){
+					receta=receta+" '"+rset3.getString(i)+"',";
+				}
+				receta=receta+"'"+sur+"', '"+sur+"', 'SI', ";
+				for(int i = 20; i<28;i++){
+					receta=receta+" '"+rset3.getString(i)+"',";
+				}
+				receta=receta+"'2', ";
+				for(int i = 29; i<31;i++){
+					receta=receta+" '"+rset3.getString(i)+"',";
+				}
+				receta=receta+"'SURTIDO', ";
+				for(int i = 32; i<50;i++){
+					receta=receta+" '"+rset3.getString(i)+"',";
+				}
+				receta=receta+" '0'";
+			}
+				
+			receta=receta+")";
+			stmt3.execute("insert into modificacion values ('"+clavesur+"','"+descripsur+"','-','-','"+cant_o3+"','2','-"+cant_o3+"','0','"+date_jv+"','"+encar_jv+"','SALIDA VÍA RECETA','',current_timestamp,'"+foliore_jv+"','-','-','-','-','-',0)");
+			//out.println("<br>");
+			stmt3.execute("update inventario set cant='"+(cant_o3-sur)+"' where clave='"+clavesur+"' and origen='2'");
+			stmt3.execute(receta);
+			//out.println("<br>"+sol+"<br>");
+		}
+	}
+	//-----------------------------PENDIENTE POR SURTIR---------------------------------------------------------------------------------
+	cant_o3=0;
 
-	 rset_re = stmt_re.executeQuery(" select * from receta WHERE id='"+eliminar_jv+"'");
+	if (sol>0){
+			//out.println("update receta set cant_sol='"+sur+"',cant_sur='"+sur+"',cant_pendi='0',status_receta='"+status+"' where id='"+eliminar_jv+"'");
+			receta="insert into receta values (";
+			rset3 = stmt3.executeQuery("select * from receta where id='"+eliminar_jv+"'");
+			while(rset3.next()){
+				for(int i = 1; i<17;i++){
+					receta=receta+" '"+rset3.getString(i)+"',";
+				}
+				receta=receta+"'"+sol+"', '0', ";
+				for(int i = 19; i<50;i++){
+					receta=receta+" '"+rset3.getString(i)+"',";
+				}
+				receta=receta+" '0'";
+			}
+				
+			receta=receta+")";
+			stmt3.execute(receta);
+	}
+	stmt3.execute("delete from receta where id='"+eliminar_jv+"'");
+	%>
+	<script>alert("Datos Modificados")</script>
+	<script>self.location='receta_por_surtir.jsp?id_prov=<%=eliminar_jv%>&uni=<%=nom_unidad%>&juris=<%=no_jur%>&nombre=<%=nombre_jv%>&edad=<%=edad_jv%>&folio=<%=folio_jv%>&clave1=&descrip1=&present1=&indica1=<%=indica1_jv%>&sol1=&sur1=&cause=<%=cause_jv%>&foliore=<%=foliore_jv%>&encar=<%=encar_jv%>&juris1=<%=juris_jv%>&clave_uni=<%=clave_jv%>&univer=<%=uni_jv%>&cedu=<%=cedu_jv%>&nomed=<%=nomed_jv%>&cv_dgo=<%=cv_dgo_jv%>&cv_uni=<%=cv_uni_jv%>&cv_mpio=<%=cv_mpio_jv%>&part=&id_med=<%=id_med_jv%>&day5=<%=t3_jv%>&mes5=<%=t2_jv%>&aa5=<%=t3_jv%>&carnet=<%=carnet_jv%>'</script>
+	<%
+/*
+	 rset_re = stmt_re.executeQuery("select * from receta WHERE id='"+eliminar_jv+"'");
 			while (rset_re.next())
 			{
 			cantsur=rset_re.getString("cant_sur");
@@ -258,8 +449,12 @@ rset_001 = stmt_001.executeQuery("SELECT STR_TO_DATE('"+date_jv+"', '%d/%m/%Y')"
 	   </script>	
 			<%
 			}
-	   	
-	   
+	   	*/
+	   }
+	   %>
+	   <script>alert("Este insumo ya estaba surtido")</script>
+		<script>self.location='receta_por_surtir.jsp?id_prov=<%=eliminar_jv%>&uni=<%=nom_unidad%>&juris=<%=no_jur%>&nombre=<%=nombre_jv%>&edad=<%=edad_jv%>&folio=<%=folio_jv%>&clave1=&descrip1=&present1=&indica1=<%=indica1_jv%>&sol1=&sur1=&cause=<%=cause_jv%>&foliore=<%=foliore_jv%>&encar=<%=encar_jv%>&juris1=<%=juris_jv%>&clave_uni=<%=clave_jv%>&univer=<%=uni_jv%>&cedu=<%=cedu_jv%>&nomed=<%=nomed_jv%>&cv_dgo=<%=cv_dgo_jv%>&cv_uni=<%=cv_uni_jv%>&cv_mpio=<%=cv_mpio_jv%>&part=&id_med=<%=id_med_jv%>&day5=<%=t3_jv%>&mes5=<%=t2_jv%>&aa5=<%=t3_jv%>&carnet=<%=carnet_jv%>'</script>
+	<%
 }	
 
 %>
